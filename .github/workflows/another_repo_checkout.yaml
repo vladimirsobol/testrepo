@@ -8,6 +8,11 @@ jobs:
     steps:
       - name: checkout_self
         uses: actions/checkout@v3
+      - name: List files and Java
+        run: | 
+          ls -altr
+          ls -las ./tomcat
+          java --version
       - name: checkout_tomcat
         uses: actions/checkout@v3
         with:
@@ -23,3 +28,7 @@ jobs:
           ls -altr
           ls -las ./tomcat
           java --version
+      - name: Compile Tomcat
+        run: |
+          cd ./tomcat
+          ant
