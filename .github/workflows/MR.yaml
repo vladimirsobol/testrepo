@@ -1,0 +1,30 @@
+name: auto_merge
+
+on:
+  pull_request:
+    types: [opened, reopened]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: step1
+        uses: actions/checkout@v3
+      - name: Python Syntax Checker
+        uses: cclauss/Find-Python-syntax-errors-action@v0.2.0
+  merge:
+    if: github-actor == 'vladimirsobol'
+    needs: [lint]
+    runs-on: ubuntu-latest
+    steps:
+      - name: auto-approve-MR
+        uses: hmarr/auto-approve-action@v3
+        with:
+          review-message: "Auto approved automated PR by hmarr/auto-approve-action@v3"
+      - name: Merge
+        uses: KeisukeYamashita/auto-pull-request-merge@v1
+        with:
+          intervalSeconds: 10
+          timeoutSeconds: 30        
+      - name: delete branch
+        uses: zjutszl/delete-merged-branch-asdf@master
