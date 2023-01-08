@@ -1,5 +1,5 @@
 name: first
-on: push
+on: []
 jobs:
   job1:
     # needs: job2
