@@ -27,4 +27,4 @@ jobs:
           intervalSeconds: 10
           timeoutSeconds: 30        
       - name: delete branch
-        uses: zjutszl/delete-merged-branch-asdf@master
+        uses: SvanBoxel/delete-merged-branch@main
