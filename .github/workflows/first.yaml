@@ -20,3 +20,12 @@ jobs:
       - name: step2
         run: "dir Env: | sort-object"
       - run: get-date
+  job3:
+    name: 3rd_job
+    runs-on: macos-latest
+    steps:
+      - name: step1
+        uses: actions/checkout@v3
+      - name: step2
+        run: "env | sort"
+      - run: date
