@@ -16,6 +16,8 @@ jobs:
           path: ./tomcat
       - name: Setup Java
         uses: actions/setup-java@v1
+        with:
+          java-version: '9.0.4'
       - name: List files and Java
         run: | 
           ls -altr
