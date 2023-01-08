@@ -1,0 +1,22 @@
+name: another_repo_checkout
+on: [push]
+jobs:
+  job1:
+    # needs: job2
+    name: first_job
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout_self
+        uses: actions/checkout@v3
+      - name: checkout_tomcat
+        uses: actions/checkout@v3
+        with:
+          repository: apache/tomcat
+          ref: master
+          path: ./tomcat
+      - name: Setup Java
+        uses: actions/setup-java
+      - name: List files and Java
+        run: | 
+          ls -altr
+          java --version
