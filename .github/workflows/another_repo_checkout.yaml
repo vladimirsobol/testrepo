@@ -21,4 +21,5 @@ jobs:
       - name: List files and Java
         run: | 
           ls -altr
+          ls -las ./tomcat
           java --version
